@@ -14,7 +14,147 @@ namespace labatp1
     {
         public Form1()
         {
+
             InitializeComponent();
+        }
+       
+        class Global
+        {
+            public static Matrix matrix_a, matrix_b, matrix_c;
+            
+        }
+        struct Matrix
+        {
+            public int rows, columns;
+            public int[,] matr;
+            
+            public int[,] Addition(Matrix a,Matrix b)
+            {
+                for(int i=0; i<rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        a.matr[i, j] += b.matr[i, j];
+                    }
+                }
+                return a.matr;
+            }
+            public int[,] Multiplication(Matrix a, int b)
+            {
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        a.matr[i, j] *= b;
+                    }
+                }
+                return a.matr;
+            }
+            public int findNumb(Matrix a, int b)
+            {
+                int summ=0;
+                for (int i = 0; i < columns; i++)
+                {
+                    summ += a.matr[b, i];
+                }
+                return summ;
+            }
+        }
+        private void creatMatrButton_Click(object sender, EventArgs e)
+        {
+            matrixDataGrid1.Columns.Clear();
+            matrixDataGrid1.Rows.Clear();
+            Global.matrix_a.rows = Convert.ToInt16(rowsMaskTB.Text);
+            Global.matrix_a.columns = Convert.ToInt16(columnsMaskTB.Text);
+            Global.matrix_b.rows = Convert.ToInt16(rowsMaskTB.Text);
+            Global.matrix_b.columns = Convert.ToInt16(columnsMaskTB.Text);
+            matrixDataGrid1.RowCount  = Global.matrix_a.rows;
+            matrixDataGrid1.ColumnCount = Global.matrix_a.columns;
+            matrixDataGrid2.RowCount = Global.matrix_a.rows;
+            matrixDataGrid2.ColumnCount = Global.matrix_a.columns;
+        }
+
+        private void randomMatrButton_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            Global.matrix_a.matr = new int[Global.matrix_a.rows, Global.matrix_a.columns];
+            Global.matrix_b.matr = new int[Global.matrix_b.rows, Global.matrix_b.columns];
+            if (Convert.ToInt16(randMatrButton.Text) == 1 || Convert.ToInt16(randMatrButton.Text) == 2)
+            {
+                if (Convert.ToInt16(randMatrButton.Text) == 1)
+                {
+
+                    for (int i = 0; i < Global.matrix_a.rows; i++)
+                    {
+                        for (int j = 0; j < Global.matrix_a.columns; j++)
+                        {
+                            Global.matrix_a.matr[i, j] = r.Next(200) - 100;
+                            matrixDataGrid1[j, i].Value = Global.matrix_a.matr[i, j];
+                        }
+                    }
+                }
+                if (Convert.ToInt16(randMatrButton.Text) == 2)
+                {
+                    for (int i = 0; i < Global.matrix_a.rows; i++)
+                    {
+                        for (int j = 0; j < Global.matrix_a.columns; j++)
+                        {
+                            Global.matrix_a.matr[i, j] = r.Next(200) - 100;
+                            matrixDataGrid1[j, i].Value = Global.matrix_a.matr[i, j];
+                        }
+                    }
+                    for (int i = 0; i < Global.matrix_b.rows; i++)
+                    {
+                        for (int j = 0; j < Global.matrix_b.columns; j++)
+                        {
+                            Global.matrix_b.matr[i, j] = r.Next(200) - 100;
+                            matrixDataGrid2[j, i].Value = Global.matrix_b.matr[i, j];
+                        }
+                    }
+                }
+            }
+            else MessageBox.Show("Введите значение равное 1 или 2", "Ошибка",MessageBoxButtons.OK);
+        }
+
+        private void multMatrButton_Click(object sender, EventArgs e)
+        {
+            Global.matrix_c = Global.matrix_a;
+            Global.matrix_c.Multiplication(Global.matrix_a, Convert.ToInt16(multMaskTB.Text));
+            for (int i = 0; i < Global.matrix_b.rows; i++)
+            {
+                for (int j = 0; j < Global.matrix_b.columns; j++)
+                {
+                    matrixDataGrid2[i, j].Value = Global.matrix_c.matr[i, j];
+                }
+            }
+        }
+
+        private void addMatrButton_Click(object sender, EventArgs e)
+        {
+            Global.matrix_c = Global.matrix_a;
+            Global.matrix_c.Addition(Global.matrix_a, Global.matrix_b);
+            matrixDataGrid3.RowCount = Global.matrix_c.rows;
+            matrixDataGrid3.ColumnCount = Global.matrix_c.columns;
+            matrixDataGrid3.Visible = true;       
+            for (int i = 0; i < Global.matrix_b.rows; i++)
+            {
+                for (int j = 0; j < Global.matrix_b.columns; j++)
+                {
+                    matrixDataGrid3[j, i].Value = Global.matrix_c.matr[i, j];
+                }
+            }
+
+        }
+
+        private void findSumButton_Click(object sender, EventArgs e)
+        {
+            int k;
+            if (Convert.ToInt16(findColumnMaskTB.Text) < matrixDataGrid1.RowCount)
+            {
+                k = Global.matrix_a.findNumb (Global.matrix_a, Convert.ToInt16(findColumnMaskTB.Text));
+                answerTB.Text = "" + k;
+            }
+            answerTB.Visible = true;
         }
     }
 }
