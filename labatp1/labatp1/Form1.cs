@@ -17,12 +17,22 @@ namespace labatp1
 
             InitializeComponent();
         }
-       
+        
+        public static void GridChange(DataGridView a)
+        {
+            //DataGridViewElementStates flag = new DataGridViewElementStates;
+            a.AutoResizeColumns();
+            a.AutoResizeRows();
+            //int wight = a.Columns.GetColumnsWidth(DataGridViewElementStates.ResizableSet);
+            a.Size = new Size(30 * Global.matrix_a.columns ,20 * Global.matrix_a.rows);
+        }
+
         class Global
         {
             public static Matrix matrix_a, matrix_b, matrix_c;
             
         }
+        
         struct Matrix
         {
             public int rows, columns;
@@ -72,6 +82,45 @@ namespace labatp1
             matrixDataGrid1.ColumnCount = Global.matrix_a.columns;
             matrixDataGrid2.RowCount = Global.matrix_a.rows;
             matrixDataGrid2.ColumnCount = Global.matrix_a.columns;
+            GridChange(matrixDataGrid1);
+            GridChange(matrixDataGrid2);
+            GridChange(matrixDataGrid3);
+            if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
+            {
+                {
+                    Point x = new Point(50, matrixDataGrid2.Location.Y + matrixDataGrid1.Size.Height + 50);
+                    matrixDataGrid2.Location = x;
+                    label2.Location.Offset(x);
+                    if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
+                    {
+                        Width = matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + 50;
+
+                    }
+                }
+            }
+            if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width > matrixDataGrid2.Location.X)
+            {
+                Point x = new Point(matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width+50,matrixDataGrid2.Location.Y);
+                matrixDataGrid2.Location = x;
+                label2.Location.Offset(x);
+                if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
+                {
+                    Width = matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width+50;
+                    
+                }
+
+            }
+            if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > matrixDataGrid3.Location.X)
+            {
+                Point y = new Point((matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + 50)/2, matrixDataGrid2.Location.Y + matrixDataGrid1.Size.Height +50 );
+                matrixDataGrid3.Location = y;
+                label3.Location.Offset(y);
+                if (matrixDataGrid3.Location.Y + matrixDataGrid3.Size.Height > Height)
+                {
+                    Height = matrixDataGrid3.Location.Y + matrixDataGrid3.Size.Height + 50;
+                }
+
+            }
         }
 
         private void randomMatrButton_Click(object sender, EventArgs e)
@@ -114,6 +163,7 @@ namespace labatp1
                 }
             }
             else MessageBox.Show("Введите значение равное 1 или 2", "Ошибка",MessageBoxButtons.OK);
+            GridChange(matrixDataGrid1);
         }
 
         private void multMatrButton_Click(object sender, EventArgs e)
@@ -127,6 +177,7 @@ namespace labatp1
                     matrixDataGrid2[i, j].Value = Global.matrix_c.matr[i, j];
                 }
             }
+
         }
 
         private void addMatrButton_Click(object sender, EventArgs e)

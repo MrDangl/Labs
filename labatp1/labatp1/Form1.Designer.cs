@@ -268,6 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(584, 492);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.matrixDataGrid3);
@@ -290,7 +291,7 @@
             this.Controls.Add(this.matrixDataGrid1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Лабораторная 2 Тип данных как структура с функциями";
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid3)).EndInit();
