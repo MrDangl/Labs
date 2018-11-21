@@ -17,6 +17,7 @@ namespace labatp1
 
             InitializeComponent();
         }
+
         
         public static void GridChange(DataGridView a)
         {
@@ -27,12 +28,15 @@ namespace labatp1
             a.Size = new Size(30 * Global.matrix_a.columns ,20 * Global.matrix_a.rows);
         }
 
+
+       
+
         class Global
         {
             public static Matrix matrix_a, matrix_b, matrix_c;
             
         }
-        
+
         struct Matrix
         {
             public int rows, columns;
@@ -191,7 +195,6 @@ namespace labatp1
                     matrixDataGrid2[i, j].Value = Global.matrix_c.matr[i, j];
                 }
             }
-
         }
 
         private void addMatrButton_Click(object sender, EventArgs e)
