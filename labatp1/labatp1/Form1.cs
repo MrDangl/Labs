@@ -85,24 +85,26 @@ namespace labatp1
             GridChange(matrixDataGrid1);
             GridChange(matrixDataGrid2);
             GridChange(matrixDataGrid3);
-            if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
+            if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width > Width)
             {
                 {
-                    Point x = new Point(50, matrixDataGrid2.Location.Y + matrixDataGrid1.Size.Height + 50);
+                    Point x = new Point(10, matrixDataGrid2.Location.Y + matrixDataGrid1.Size.Height + 50);
                     matrixDataGrid2.Location = x;
-                    label2.Location.Offset(x);
-                    if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
+                    x.Offset(50, -25);
+                    label3.Location = x;
+                    if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width > Width)
                     {
                         Width = matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + 50;
 
                     }
                 }
             }
-            if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width > matrixDataGrid2.Location.X)
+            else if (matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width > matrixDataGrid2.Location.X)
             {
                 Point x = new Point(matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width+50,matrixDataGrid2.Location.Y);
                 matrixDataGrid2.Location = x;
-                label2.Location.Offset(x);
+                x.Offset( 50, -25);
+                label3.Location = x;
                 if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width)
                 {
                     Width = matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width+50;
@@ -110,17 +112,29 @@ namespace labatp1
                 }
 
             }
-            if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > matrixDataGrid3.Location.X)
+            if (matrixDataGrid2.Location.X + matrixDataGrid2.Size.Width > Width +50)
             {
                 Point y = new Point((matrixDataGrid1.Location.X + matrixDataGrid1.Size.Width + 50)/2, matrixDataGrid2.Location.Y + matrixDataGrid1.Size.Height +50 );
                 matrixDataGrid3.Location = y;
-                label3.Location.Offset(y);
+                y.Offset(50, -25);
+                label6.Location = y;
                 if (matrixDataGrid3.Location.Y + matrixDataGrid3.Size.Height > Height)
                 {
                     Height = matrixDataGrid3.Location.Y + matrixDataGrid3.Size.Height + 50;
                 }
 
             }
+            if (matrixDataGrid2.Location.Y != matrixDataGrid1.Location.Y)
+            {
+                {
+                    Point x = new Point(20, matrixDataGrid2.Location.Y + matrixDataGrid3.Size.Height + 50);
+                    matrixDataGrid3.Location = x;
+                    x.Offset(50, -25);
+                    label6.Location = x;
+                   
+                }
+            }
+            
         }
 
         private void randomMatrButton_Click(object sender, EventArgs e)
