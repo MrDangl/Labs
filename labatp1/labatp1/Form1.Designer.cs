@@ -76,7 +76,6 @@
             this.matrixDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.matrixDataGrid1.ColumnHeadersVisible = false;
             this.matrixDataGrid1.EnableHeadersVisualStyles = false;
-
             this.matrixDataGrid1.Location = new System.Drawing.Point(12, 263);
             this.matrixDataGrid1.Name = "matrixDataGrid1";
             this.matrixDataGrid1.RowHeadersVisible = false;
@@ -96,9 +95,7 @@
             this.matrixDataGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matrixDataGrid2.ColumnHeadersVisible = false;
             this.matrixDataGrid2.EnableHeadersVisualStyles = false;
-
             this.matrixDataGrid2.Location = new System.Drawing.Point(292, 263);
-
             this.matrixDataGrid2.Name = "matrixDataGrid2";
             this.matrixDataGrid2.RowHeadersVisible = false;
             this.matrixDataGrid2.Size = new System.Drawing.Size(166, 151);
@@ -107,35 +104,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(37, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 24);
-
             this.label2.TabIndex = 3;
             this.label2.Text = "Матрица А";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(326, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 24);
-
             this.label3.TabIndex = 4;
             this.label3.Text = "Матрица B";
             // 
             // creatMatrButton
             // 
-
             this.creatMatrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.creatMatrButton.Location = new System.Drawing.Point(166, 178);
             this.creatMatrButton.Name = "creatMatrButton";
             this.creatMatrButton.Size = new System.Drawing.Size(96, 30);
-
             this.creatMatrButton.TabIndex = 5;
             this.creatMatrButton.Text = "Создать";
             this.creatMatrButton.UseVisualStyleBackColor = true;
@@ -143,12 +134,10 @@
             // 
             // randomMatrButton
             // 
-
             this.randomMatrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.randomMatrButton.Location = new System.Drawing.Point(340, 180);
             this.randomMatrButton.Name = "randomMatrButton";
             this.randomMatrButton.Size = new System.Drawing.Size(116, 30);
-
             this.randomMatrButton.TabIndex = 6;
             this.randomMatrButton.Text = "Заполнить";
             this.randomMatrButton.UseVisualStyleBackColor = true;
@@ -156,9 +145,7 @@
             // 
             // rowsMaskTB
             // 
-
             this.rowsMaskTB.Location = new System.Drawing.Point(36, 182);
-
             this.rowsMaskTB.Mask = "00";
             this.rowsMaskTB.Name = "rowsMaskTB";
             this.rowsMaskTB.ResetOnSpace = false;
@@ -167,9 +154,7 @@
             // 
             // randMatrButton
             // 
-
             this.randMatrButton.Location = new System.Drawing.Point(305, 185);
-
             this.randMatrButton.Mask = "0";
             this.randMatrButton.Name = "randMatrButton";
             this.randMatrButton.Size = new System.Drawing.Size(14, 20);
@@ -177,12 +162,10 @@
             // 
             // multMatrButton
             // 
-
             this.multMatrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.multMatrButton.Location = new System.Drawing.Point(634, 27);
             this.multMatrButton.Name = "multMatrButton";
             this.multMatrButton.Size = new System.Drawing.Size(117, 35);
-
             this.multMatrButton.TabIndex = 9;
             this.multMatrButton.Text = "Умножить\r\n ";
             this.multMatrButton.UseVisualStyleBackColor = true;
@@ -190,12 +173,10 @@
             // 
             // addMatrButton
             // 
-
             this.addMatrButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addMatrButton.Location = new System.Drawing.Point(634, 80);
             this.addMatrButton.Name = "addMatrButton";
             this.addMatrButton.Size = new System.Drawing.Size(117, 36);
-
             this.addMatrButton.TabIndex = 10;
             this.addMatrButton.Text = "Сложить";
             this.addMatrButton.UseVisualStyleBackColor = true;
@@ -203,12 +184,10 @@
             // 
             // findSumButton
             // 
-
             this.findSumButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findSumButton.Location = new System.Drawing.Point(634, 129);
             this.findSumButton.Name = "findSumButton";
             this.findSumButton.Size = new System.Drawing.Size(136, 39);
-
             this.findSumButton.TabIndex = 11;
             this.findSumButton.Text = "Найти сумму";
             this.findSumButton.UseVisualStyleBackColor = true;
@@ -216,9 +195,7 @@
             // 
             // multMaskTB
             // 
-
             this.multMaskTB.Location = new System.Drawing.Point(584, 37);
-
             this.multMaskTB.Mask = "0000";
             this.multMaskTB.Name = "multMaskTB";
             this.multMaskTB.ResetOnSpace = false;
@@ -227,9 +204,7 @@
             // 
             // findColumnMaskTB
             // 
-
             this.findColumnMaskTB.Location = new System.Drawing.Point(584, 141);
-
             this.findColumnMaskTB.Mask = "00";
             this.findColumnMaskTB.Name = "findColumnMaskTB";
             this.findColumnMaskTB.Size = new System.Drawing.Size(31, 20);
@@ -238,9 +213,7 @@
             // answerTB
             // 
             this.answerTB.Enabled = false;
-
             this.answerTB.Location = new System.Drawing.Point(651, 182);
-
             this.answerTB.Name = "answerTB";
             this.answerTB.Size = new System.Drawing.Size(100, 20);
             this.answerTB.TabIndex = 14;
@@ -248,9 +221,7 @@
             // 
             // columnsMaskTB
             // 
-
             this.columnsMaskTB.Location = new System.Drawing.Point(123, 182);
-
             this.columnsMaskTB.Mask = "00";
             this.columnsMaskTB.Name = "columnsMaskTB";
             this.columnsMaskTB.Size = new System.Drawing.Size(21, 20);
@@ -259,24 +230,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(12, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 24);
-
             this.label4.TabIndex = 16;
             this.label4.Text = "Строки";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(93, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 24);
-
             this.label5.TabIndex = 17;
             this.label5.Text = "Столбцы";
             // 
@@ -291,9 +258,7 @@
             this.matrixDataGrid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matrixDataGrid3.ColumnHeadersVisible = false;
             this.matrixDataGrid3.EnableHeadersVisualStyles = false;
-
             this.matrixDataGrid3.Location = new System.Drawing.Point(585, 263);
-
             this.matrixDataGrid3.Name = "matrixDataGrid3";
             this.matrixDataGrid3.RowHeadersVisible = false;
             this.matrixDataGrid3.Size = new System.Drawing.Size(166, 151);
@@ -303,12 +268,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(630, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 24);
-
             this.label6.TabIndex = 19;
             this.label6.Text = "Матрица C";
             // 
@@ -316,10 +279,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(905, 406);
-
+            this.ClientSize = new System.Drawing.Size(967, 477);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.matrixDataGrid3);
             this.Controls.Add(this.label5);
@@ -341,9 +302,7 @@
             this.Controls.Add(this.matrixDataGrid1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-
             this.Text = "Лабораторная 2 Тип данных как структура с функциями";
-
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matrixDataGrid3)).EndInit();
