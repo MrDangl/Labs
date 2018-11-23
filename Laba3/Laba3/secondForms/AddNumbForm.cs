@@ -21,7 +21,7 @@ namespace Laba3
         {
             if (drobCheckBox.Checked == true)
             {
-                Main.DrobNumber x = new Main.DrobNumber();
+                DrobNumber x = new DrobNumber();
                 x.Numerator = Convert.ToDouble(maskedTextBox1.Text);
                 x.Denominator = Convert.ToDouble(maskedTextBox2.Text);
                 x.Transfer();
@@ -31,7 +31,7 @@ namespace Laba3
             }
             if (komplexCheckBox.Checked == true)
             {
-                Main.KomplexNumber x = new Main.KomplexNumber();
+                KomplexNumber x = new KomplexNumber();
                 x.Exictedpart = Convert.ToDouble(maskedTextBox1.Text);
                 x.Fakepart = Convert.ToDouble(maskedTextBox2.Text);
                 x.Transfer();
