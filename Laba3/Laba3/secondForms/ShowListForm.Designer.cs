@@ -37,17 +37,17 @@
             this.listBox1.ItemHeight = 24;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(335, 268);
+            this.listBox1.Size = new System.Drawing.Size(849, 268);
             this.listBox1.TabIndex = 0;
             // 
             // ShowListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 297);
+            this.ClientSize = new System.Drawing.Size(873, 298);
             this.Controls.Add(this.listBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ShowListForm";
             this.Text = "ShowListForm";
             this.ResumeLayout(false);

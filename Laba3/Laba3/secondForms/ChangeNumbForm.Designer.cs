@@ -37,12 +37,13 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.numbLabel = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // komplexlabel2
             // 
             this.komplexlabel2.AutoSize = true;
-            this.komplexlabel2.Location = new System.Drawing.Point(46, 217);
+            this.komplexlabel2.Location = new System.Drawing.Point(46, 248);
             this.komplexlabel2.Name = "komplexlabel2";
             this.komplexlabel2.Size = new System.Drawing.Size(137, 24);
             this.komplexlabel2.TabIndex = 16;
@@ -52,7 +53,7 @@
             // komplexlabel1
             // 
             this.komplexlabel1.AutoSize = true;
-            this.komplexlabel1.Location = new System.Drawing.Point(12, 141);
+            this.komplexlabel1.Location = new System.Drawing.Point(12, 172);
             this.komplexlabel1.Name = "komplexlabel1";
             this.komplexlabel1.Size = new System.Drawing.Size(197, 24);
             this.komplexlabel1.TabIndex = 15;
@@ -62,7 +63,7 @@
             // droblabel2
             // 
             this.droblabel2.AutoSize = true;
-            this.droblabel2.Location = new System.Drawing.Point(46, 217);
+            this.droblabel2.Location = new System.Drawing.Point(46, 248);
             this.droblabel2.Name = "droblabel2";
             this.droblabel2.Size = new System.Drawing.Size(131, 24);
             this.droblabel2.TabIndex = 14;
@@ -72,7 +73,7 @@
             // droblabel1
             // 
             this.droblabel1.AutoSize = true;
-            this.droblabel1.Location = new System.Drawing.Point(57, 141);
+            this.droblabel1.Location = new System.Drawing.Point(57, 172);
             this.droblabel1.Name = "droblabel1";
             this.droblabel1.Size = new System.Drawing.Size(105, 24);
             this.droblabel1.TabIndex = 13;
@@ -81,17 +82,18 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(230, 187);
+            this.addButton.Location = new System.Drawing.Point(230, 218);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(105, 29);
             this.addButton.TabIndex = 12;
             this.addButton.Text = "button1";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Visible = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(85, 244);
+            this.maskedTextBox2.Location = new System.Drawing.Point(85, 275);
             this.maskedTextBox2.Mask = "0000";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(46, 29);
@@ -100,7 +102,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(85, 168);
+            this.maskedTextBox1.Location = new System.Drawing.Point(85, 199);
             this.maskedTextBox1.Mask = "0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.ResetOnPrompt = false;
@@ -127,11 +129,22 @@
             this.maskedTextBox3.Size = new System.Drawing.Size(32, 29);
             this.maskedTextBox3.TabIndex = 18;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(117, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 30);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ChangeNumbForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 326);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.maskedTextBox3);
             this.Controls.Add(this.numbLabel);
             this.Controls.Add(this.komplexlabel2);
@@ -142,7 +155,7 @@
             this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.maskedTextBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ChangeNumbForm";
             this.Text = "ChangeNumbForm";
             this.ResumeLayout(false);
@@ -160,5 +173,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label numbLabel;
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.Button button1;
     }
 }
