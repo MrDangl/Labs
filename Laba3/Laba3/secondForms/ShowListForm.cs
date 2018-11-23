@@ -15,7 +15,7 @@ namespace Laba3
         public ShowListForm()
         {
             InitializeComponent();
-            for (int i = 0; i < Main.Number.count+1; i++)
+            for (int i = 0; i < Number.count+1; i++)
             {
                 for (int j = 0; j < Main.Global.drb.Length; j++)
                 {

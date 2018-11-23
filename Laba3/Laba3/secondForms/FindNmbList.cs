@@ -19,7 +19,7 @@ namespace Laba3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Main.Number.count; i++)
+            for (int i = 0; i < Number.count; i++)
             {
                 for (int j = 0; j < Main.Global.drb.Length; j++)
                 {

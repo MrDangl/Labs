@@ -20,9 +20,9 @@ namespace Laba3
         string type;
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt16(maskedTextBox3.Text) >= Main.Number.count)
+            if (Convert.ToInt16(maskedTextBox3.Text) >= Number.count)
             {
-                for (int i = 0; i < Main.Number.count; i++)
+                for (int i = 0; i < Number.count; i++)
                 {
                     for (int j = 0; j < Main.Global.drb.Length; j++)
                     {
