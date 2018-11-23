@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Laba3
 {
@@ -16,15 +17,20 @@ namespace Laba3
         {
             public static KomplexNumber[] kmp = new KomplexNumber[0];
             public static DrobNumber[] drb = new DrobNumber[0];
-            public static int items = Number.count;
+            
             
         }
         public class Number
         {
             public static int count = 0;
+            public int Items
+            { get { return count; } 
+            }
             private int id;
             public int Count
-            { get { return id; } }
+            { get { return id; }
+                set { id = value; }
+            }
             public Number()
             { 
                 count++;
@@ -84,12 +90,57 @@ namespace Laba3
 
         private void writeTolStrip_Click(object sender, EventArgs e)
         {
-
+            string text = "";
+            StreamWriter sw = new StreamWriter("papka.txt");
+            for(int i=0; i<Global.drb.Length;i++)
+            {
+                text = "drb " + Global.drb[i].Count + " " + Global.drb[i].Numerator + " " + Global.drb[i].Denominator + " " + Global.drb[i].GetValue;
+                sw.WriteLine(text);
+                
+            }
+            for (int i = 0; i < Global.kmp.Length; i++)
+            {
+                text = "kmp " + Global.kmp[i].Count + " " + Global.kmp[i].Exictedpart + " " + Global.kmp[i].Fakepart + " " + Global.kmp[i].GetValue;
+                sw.WriteLine(text);
+                
+            }
+            sw.Close();
         }
 
         private void openToolStrip_Click(object sender, EventArgs e)
         {
-
+            Number.count = 0;
+            Global.drb = new DrobNumber[0];
+            Global.kmp = new KomplexNumber[0];
+            string[] text;
+            string line = "";
+            StreamReader sr = new StreamReader("papka.txt");
+            while ((line = sr.ReadLine()) != null)
+            {
+                text = line.Split(' ');
+                if (text[0] == "drb")
+                {
+                    Main.DrobNumber x = new Main.DrobNumber();
+                    x.Numerator = Convert.ToInt16(text[2]);
+                    x.Denominator = Convert.ToInt16(text[3]);
+                    x.Count = Convert.ToInt16(text[1]);
+                    x.Transfer();
+                    Array.Resize(ref Main.Global.drb, Main.Global.drb.Length + 1);
+                    Main.Global.drb[Main.Global.drb.Length - 1] = x;
+                }
+                ;
+                if (text[0] == "kmp")
+                {
+                    Main.KomplexNumber x = new Main.KomplexNumber();
+                    x.Exictedpart = Convert.ToInt16(text[2]);
+                    x.Fakepart = Convert.ToInt16(text[3]);
+                    x.Count = Convert.ToInt16(text[1]);
+                    x.Transfer();
+                    Array.Resize(ref Main.Global.kmp, Main.Global.kmp.Length + 1);
+                    Main.Global.kmp[Main.Global.kmp.Length - 1] = x;
+                }
+                ;
+            }
         }
 
         private void addNumb_Click(object sender, EventArgs e)

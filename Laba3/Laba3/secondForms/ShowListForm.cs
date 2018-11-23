@@ -15,24 +15,23 @@ namespace Laba3
         public ShowListForm()
         {
             InitializeComponent();
-            int a = 0;
-            for (int i = 0; i < Main.Global.drb.Length; i++)
+            for (int i = 0; i < Main.Number.count+1; i++)
             {
-                for (int j = 0; j < Main.Global.kmp.Length; j++)
+                for (int j = 0; j < Main.Global.drb.Length; j++)
                 {
-                    
-                    if (a == Main.Global.drb[i].Count -1 )
-                    {
-                        listBox1.Items.Add(Main.Global.drb[i].Count + " Тип : Дробь " + Main.Global.drb[i].Numerator + "/" + Main.Global.drb[i].Denominator + " Приблизительно равен " + Main.Global.drb[i].GetValue);
-                    }
-                    else
-                        listBox1.Items.Add(Main.Global.kmp[j].Count + " Тип : Комплексное число " + Main.Global.kmp[j].Exictedpart + " + " + Main.Global.kmp[j].Fakepart + "i Приблизительно равен " + Main.Global.drb[j].GetValue);
-
-                    
+                    if(Main.Global.drb[j].Count == i)
+                    listBox1.Items.Add(Main.Global.drb[j].Count + " Тип : Дробь " + Main.Global.drb[j].Numerator + "/" + Main.Global.drb[j].Denominator + " Приблизительно равен " + Main.Global.drb[j].GetValue);
                 }
+                for (int k = 0; k < Main.Global.kmp.Length; k++)
+                {
+                    if (i == Main.Global.kmp[k].Count)
+                        listBox1.Items.Add(Main.Global.kmp[k].Count + " Тип : Комплексное число " + Main.Global.kmp[k].Exictedpart + " + " + Main.Global.kmp[k].Fakepart + "i Приблизительно равен " + Main.Global.kmp[k].GetValue);
+                }
+            }
+
             }
             
         }
         
     }
-}
+
