@@ -25,16 +25,19 @@ namespace Laba3
                 x.Numerator = Convert.ToDouble(maskedTextBox1.Text);
                 x.Denominator = Convert.ToDouble(maskedTextBox2.Text);
                 x.Transfer();
-                MessageBox.Show("обьект создан его запись" + Main.Number.count);
+                MessageBox.Show("обьект создан его запись " + x.Count);
+                Array.Resize(ref Main.Global.drb, Main.Global.drb.Length + 1);
+                Main.Global.drb[Main.Global.drb.Length - 1] = x;
             }
             if (komplexCheckBox.Checked == true)
             {
                 Main.KomplexNumber x = new Main.KomplexNumber();
                 x.Exictedpart = Convert.ToDouble(maskedTextBox1.Text);
                 x.Fakepart = Convert.ToDouble(maskedTextBox2.Text);
-                MessageBox.Show("обьект создан его запись" + Main.Number.count);
-                Array.Resize(ref Main.Global.drb, Main.Global.drb.Length + 1);
-                Main.Global
+                x.Transfer();
+                MessageBox.Show("обьект создан его запись " + x.Count);
+                Array.Resize(ref Main.Global.kmp, Main.Global.kmp.Length + 1);
+                Main.Global.kmp[Main.Global.kmp.Length - 1] = x;
             }
         }
 

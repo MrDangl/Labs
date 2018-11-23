@@ -16,13 +16,20 @@ namespace Laba3
         {
             public static KomplexNumber[] kmp = new KomplexNumber[0];
             public static DrobNumber[] drb = new DrobNumber[0];
+            public static int items = Number.count;
             
         }
         public class Number
         {
             public static int count = 0;
+            private int id;
+            public int Count
+            { get { return id; } }
             public Number()
-            { count++; }
+            { 
+                count++;
+                id = count;
+            }
             protected double nmbvalue;
             public double GetValue
             { get { return nmbvalue; } } 
