@@ -17,12 +17,12 @@ namespace Laba3
             InitializeComponent();
             for (int i = 0; i < Main.Global.nmb.Count; i++)
             {
-                listBox1.Items.Add(Main.Global.nmb[i].AsText());
+                listBox1.Items.Add(i+1 +" "+Main.Global.nmb[i].AsText());
             }
 
-            }
-            
         }
-        
+            
     }
+        
+}
 

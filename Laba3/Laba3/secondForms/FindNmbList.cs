@@ -19,11 +19,11 @@ namespace Laba3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Main.Global.nmb.Count; i++)
+            if (Convert.ToInt16(maskedTextBox3.Text) > 0 && Convert.ToInt16(maskedTextBox3.Text) < Main.Global.nmb.Count)
             {
-                if (Convert.ToInt16(maskedTextBox3.Text) == Main.Global.nmb[i].Count)
-                    MessageBox.Show(Main.Global.nmb[i].AsText());
+                MessageBox.Show(Main.Global.nmb[Convert.ToInt16(maskedTextBox3.Text)].AsText());
             }
+            
         }
     }
 }

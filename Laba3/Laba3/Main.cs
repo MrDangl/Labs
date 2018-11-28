@@ -16,8 +16,8 @@ namespace Laba3
         public class Global
         {
             
-            public static  List<Number> nmb = new List<Number>();
-
+            public static  List<Number> nmb = new List<Number>(); 
+            
             
         }
         
@@ -28,13 +28,23 @@ namespace Laba3
         }
 
         private void writeTolStrip_Click(object sender, EventArgs e)
-        {
+        {  
             string text = "";
             StreamWriter sw = new StreamWriter("papka.txt");
             for (int i = 0; i < Global.nmb.Count; i++)
             {
-                
-                    sw.WriteLine(Global.nmb[i]);
+                if (Global.nmb[i] is KomplexNumber)
+                { KomplexNumber a = new KomplexNumber();
+                    a = Global.nmb[i] as KomplexNumber;
+                    text = "kmp " + a.Exictedpart +" "+ a.Fakepart ; 
+                }
+                if (Global.nmb[i] is DrobNumber)
+                {
+                    DrobNumber a = new DrobNumber();
+                    a = Global.nmb[i] as DrobNumber;
+                    text = "drb " + a.Numerator+" "+ a.Numerator;
+                }
+                sw.WriteLine(text);
                 
             }
             sw.Close();
@@ -42,20 +52,32 @@ namespace Laba3
 
         private void openToolStrip_Click(object sender, EventArgs e)
         {
-            Number.count = 0;
             Global.nmb.Clear();
             string[] text;
-            object t;
             string line = "";
             StreamReader sr = new StreamReader("papka.txt");
             while ((line = sr.ReadLine()) != null)
             {
-                
-                 DrobNumber d = new DrobNumber();
-                
-                
-                
+                text = line.Split(' ');
+                if (text[0] == "kmp")
+                {
+                    KomplexNumber a = new KomplexNumber();
+                    a.Exictedpart = Convert.ToDouble(text[1]);
+                    a.Fakepart = Convert.ToDouble(text[2]);
+                    a.Transfer();
+                    Global.nmb.Add(a);
+                }
+                if (text[0] == "drb")
+                {
+                    DrobNumber a = new DrobNumber();
+                    a.Numerator = Convert.ToDouble(text[1]);
+                    a.Denominator = Convert.ToDouble(text[2]);
+                    a.Transfer();
+                    Global.nmb.Add(a);
+                }
+
             }
+            sr.Close();
         }
 
         private void addNumb_Click(object sender, EventArgs e)
@@ -84,24 +106,9 @@ namespace Laba3
     }
 
     public class Number
-    {
-        public static int count = 0;
-        public int Items
-        {
-            get { return count; }
-        }
-        protected int id;
-        public int Count
-        {
-            get { return id; }
-            set { id = value; }
-        }
+    { 
         public virtual string AsText() { return ""; }
-        public Number()
-        {
-            count++;
-            id = count;
-        }
+
         protected double nmbvalue;
         public double GetValue
         { get { return nmbvalue; } }
@@ -113,7 +120,7 @@ namespace Laba3
         double fakepart;
         public override string  AsText()
         {
-            return "" + id + " Тип : Комплексное число " + Exictedpart + " + " + Fakepart + " i Приблизительно равен " + GetValue;
+            return "" + " Тип : Комплексное число " + Exictedpart + " + " + Fakepart + " i Приблизительно равен " + GetValue;
         }
         public double Transfer()
         {
@@ -144,7 +151,7 @@ namespace Laba3
         }
         public override string AsText()
         {
-            return "" + id + " Тип : дробь " + numerator + " / " + denominator + " и приблизительно равен " + GetValue;
+            return "" + " Тип : дробь " + numerator + " / " + denominator + " и приблизительно равен " + GetValue;
         }
         public double Numerator
         {
