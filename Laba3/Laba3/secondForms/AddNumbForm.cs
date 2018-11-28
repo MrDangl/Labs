@@ -26,8 +26,7 @@ namespace Laba3
                 x.Denominator = Convert.ToDouble(maskedTextBox2.Text);
                 x.Transfer();
                 MessageBox.Show("обьект создан его запись " + x.Count);
-                Array.Resize(ref Main.Global.drb, Main.Global.drb.Length + 1);
-                Main.Global.drb[Main.Global.drb.Length - 1] = x;
+                Main.Global.nmb.Add(x);
             }
             if (komplexCheckBox.Checked == true)
             {
@@ -36,8 +35,7 @@ namespace Laba3
                 x.Fakepart = Convert.ToDouble(maskedTextBox2.Text);
                 x.Transfer();
                 MessageBox.Show("обьект создан его запись " + x.Count);
-                Array.Resize(ref Main.Global.kmp, Main.Global.kmp.Length + 1);
-                Main.Global.kmp[Main.Global.kmp.Length - 1] = x;
+                Main.Global.nmb.Add(x);
             }
         }
 

@@ -15,18 +15,9 @@ namespace Laba3
         public ShowListForm()
         {
             InitializeComponent();
-            for (int i = 0; i < Number.count+1; i++)
+            for (int i = 0; i < Main.Global.nmb.Count; i++)
             {
-                for (int j = 0; j < Main.Global.drb.Length; j++)
-                {
-                    if(Main.Global.drb[j].Count == i)
-                    listBox1.Items.Add(Main.Global.drb[j].Count + " Тип : Дробь " + Main.Global.drb[j].Numerator + "/" + Main.Global.drb[j].Denominator + " Приблизительно равен " + Main.Global.drb[j].GetValue);
-                }
-                for (int k = 0; k < Main.Global.kmp.Length; k++)
-                {
-                    if (i == Main.Global.kmp[k].Count)
-                        listBox1.Items.Add(Main.Global.kmp[k].Count + " Тип : Комплексное число " + Main.Global.kmp[k].Exictedpart + " + " + Main.Global.kmp[k].Fakepart + "i Приблизительно равен " + Main.Global.kmp[k].GetValue);
-                }
+                listBox1.Items.Add(Main.Global.nmb[i].AsText());
             }
 
             }
