@@ -16,68 +16,77 @@ namespace Laba3
         {
             InitializeComponent();
         }
-        int id;
-        string type;
+        int i = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt16(maskedTextBox3.Text) >= Number.count)
+            string text = "";
+            
+            droblabel1.Visible = false;
+            droblabel2.Visible = false;
+            komplexlabel1.Visible = false;
+            komplexlabel2.Visible = false;
+            maskedTextBox1.Visible = false;
+            maskedTextBox2.Visible = false;
+            addButton.Visible = false;
+            i = Convert.ToInt16(maskedTextBox3.Text) - 1;
+            if (i > 0 && i < Main.Global.nmb.Count)
             {
-                for (int i = 0; i < Number.count; i++)
-                {
-                    for (int j = 0; j < Main.Global.drb.Length; j++)
-                    {
-                        if (Main.Global.drb[j].Count == i)
-                        {
+               
+                if (i > 0 && Main.Global.nmb[i] is KomplexNumber)
+                { 
+                    KomplexNumber a = new KomplexNumber();
+                    a = Main.Global.nmb[i] as KomplexNumber;
+                    komplexlabel1.Visible = true;
+                    komplexlabel2.Visible = true;
+                    maskedTextBox1.Visible = true;
+                    maskedTextBox2.Visible = true;
+                    addButton.Visible = true;
+                    text = ""+ a.Exictedpart;
+                    maskedTextBox1.Text = Convert.ToString(text);
+                    text = ""+ a.Fakepart;
+                    maskedTextBox2.Text = Convert.ToString(text);
 
-                            komplexlabel1.Visible = false;
-                            komplexlabel2.Visible = false;
-                            droblabel1.Visible = true;
-                            droblabel2.Visible = true;
-                            maskedTextBox1.Visible = true;
-                            maskedTextBox1.Text = Main.Global.drb[j].Numerator.ToString();
-                            maskedTextBox2.Visible = true;
-                            maskedTextBox2.Text = Main.Global.drb[j].Denominator.ToString();
-                            button1.Visible = true;
-                            id = j;
-                            type = "drb";
-                        }
-                    }
-                    for (int k = 0; k < Main.Global.kmp.Length; k++)
-                    {
-                        if (i == Main.Global.kmp[k].Count)
-                        {
-                            komplexlabel1.Visible = true;
-                            komplexlabel2.Visible = true;
-                            droblabel1.Visible = false;
-                            droblabel2.Visible = false;
-                            maskedTextBox1.Visible = true;
-                            maskedTextBox1.Text = Main.Global.kmp[k].Exictedpart.ToString();
-                            maskedTextBox2.Visible = true;
-                            maskedTextBox2.Text = Main.Global.kmp[k].Fakepart.ToString();
-                            button1.Visible = true;
-                            id = k;
-                            type = "kmp";
-                        }
-                    }
                 }
+                if (Main.Global.nmb[i] is DrobNumber)
+                {
+                    DrobNumber a = new DrobNumber();
+                    a = Main.Global.nmb[i] as DrobNumber;
+                    droblabel1.Visible = true;
+                    droblabel2.Visible = true;
+                    maskedTextBox1.Visible = true;
+                    maskedTextBox2.Visible = true;
+                    addButton.Visible = true;
+                    maskedTextBox1.Text = Convert.ToString(a.Numerator);
+                    maskedTextBox2.Text = Convert.ToString(a.Denominator);
+                }
+
             }
             else MessageBox.Show("Данной записи нет в памяти");
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (type == "kmp")
+            try
             {
-                Main.Global.kmp[id].Exictedpart = Convert.ToDouble(maskedTextBox1.Text);
-                Main.Global.kmp[id].Fakepart = Convert.ToDouble(maskedTextBox2.Text);
-                Main.Global.kmp[id].Transfer();
+                if (i > 0 && i < Main.Global.nmb.Count)
+                {
+                    if (Main.Global.nmb[i] is KomplexNumber)
+                    {
+                        KomplexNumber a = Main.Global.nmb[i] as KomplexNumber;
+                        a.Exictedpart = Convert.ToDouble(maskedTextBox1.Text);
+                        a.Fakepart = Convert.ToDouble(maskedTextBox2.Text);
+                        a.Transfer();
+                    }
+                    if (Main.Global.nmb[i] is DrobNumber)
+                    {
+                        DrobNumber a = Main.Global.nmb[i] as DrobNumber;
+                        a.Numerator = Convert.ToDouble(maskedTextBox1.Text);
+                        a.Denominator = Convert.ToDouble(maskedTextBox2.Text);
+                        a.Transfer();
+                    }
+                }
             }
-            if (type == "drb")
-            {
-                Main.Global.drb[id].Numerator = Convert.ToDouble(maskedTextBox1.Text);
-                Main.Global.drb[id].Denominator = Convert.ToDouble(maskedTextBox2.Text);
-                Main.Global.drb[id].Transfer();
-            }
+            catch (Exception) { MessageBox.Show("Ошбика, заполните таблицу правильно"); }
         }
     }
 }

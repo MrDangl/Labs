@@ -15,8 +15,8 @@ namespace Laba3
     {
         public class Global
         {
-            public static KomplexNumber[] kmp = new KomplexNumber[0];
-            public static DrobNumber[] drb = new DrobNumber[0];
+            
+            public static  List<Number> nmb = new List<Number>(); 
             
             
         }
@@ -28,18 +28,22 @@ namespace Laba3
         }
 
         private void writeTolStrip_Click(object sender, EventArgs e)
-        {
+        {  
             string text = "";
             StreamWriter sw = new StreamWriter("papka.txt");
-            for(int i=0; i<Global.drb.Length;i++)
+            for (int i = 0; i < Global.nmb.Count; i++)
             {
-                text = "drb " + Global.drb[i].Count + " " + Global.drb[i].Numerator + " " + Global.drb[i].Denominator + " " + Global.drb[i].GetValue;
-                sw.WriteLine(text);
-                
-            }
-            for (int i = 0; i < Global.kmp.Length; i++)
-            {
-                text = "kmp " + Global.kmp[i].Count + " " + Global.kmp[i].Exictedpart + " " + Global.kmp[i].Fakepart + " " + Global.kmp[i].GetValue;
+                if (Global.nmb[i] is KomplexNumber)
+                { KomplexNumber a = new KomplexNumber();
+                    a = Global.nmb[i] as KomplexNumber;
+                    text = "kmp " + a.Exictedpart +" "+ a.Fakepart ; 
+                }
+                if (Global.nmb[i] is DrobNumber)
+                {
+                    DrobNumber a = new DrobNumber();
+                    a = Global.nmb[i] as DrobNumber;
+                    text = "drb " + a.Numerator+" "+ a.Numerator;
+                }
                 sw.WriteLine(text);
                 
             }
@@ -48,38 +52,32 @@ namespace Laba3
 
         private void openToolStrip_Click(object sender, EventArgs e)
         {
-            Number.count = 0;
-            Global.drb = new DrobNumber[0];
-            Global.kmp = new KomplexNumber[0];
+            Global.nmb.Clear();
             string[] text;
             string line = "";
             StreamReader sr = new StreamReader("papka.txt");
             while ((line = sr.ReadLine()) != null)
             {
                 text = line.Split(' ');
-                if (text[0] == "drb")
-                {
-                    DrobNumber x = new DrobNumber();
-                    x.Numerator = Convert.ToInt16(text[2]);
-                    x.Denominator = Convert.ToInt16(text[3]);
-                    x.Count = Convert.ToInt16(text[1]);
-                    x.Transfer();
-                    Array.Resize(ref Main.Global.drb, Main.Global.drb.Length + 1);
-                    Main.Global.drb[Main.Global.drb.Length - 1] = x;
-                }
-                ;
                 if (text[0] == "kmp")
                 {
-                    KomplexNumber x = new KomplexNumber();
-                    x.Exictedpart = Convert.ToInt16(text[2]);
-                    x.Fakepart = Convert.ToInt16(text[3]);
-                    x.Count = Convert.ToInt16(text[1]);
-                    x.Transfer();
-                    Array.Resize(ref Main.Global.kmp, Main.Global.kmp.Length + 1);
-                    Main.Global.kmp[Main.Global.kmp.Length - 1] = x;
+                    KomplexNumber a = new KomplexNumber();
+                    a.Exictedpart = Convert.ToDouble(text[1]);
+                    a.Fakepart = Convert.ToDouble(text[2]);
+                    a.Transfer();
+                    Global.nmb.Add(a);
                 }
-                ;
+                if (text[0] == "drb")
+                {
+                    DrobNumber a = new DrobNumber();
+                    a.Numerator = Convert.ToDouble(text[1]);
+                    a.Denominator = Convert.ToDouble(text[2]);
+                    a.Transfer();
+                    Global.nmb.Add(a);
+                }
+
             }
+            sr.Close();
         }
 
         private void addNumb_Click(object sender, EventArgs e)
@@ -108,23 +106,9 @@ namespace Laba3
     }
 
     public class Number
-    {
-        public static int count = 0;
-        public int Items
-        {
-            get { return count; }
-        }
-        private int id;
-        public int Count
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        public Number()
-        {
-            count++;
-            id = count;
-        }
+    { 
+        public virtual string AsText() { return ""; }
+
         protected double nmbvalue;
         public double GetValue
         { get { return nmbvalue; } }
@@ -134,6 +118,10 @@ namespace Laba3
     {
         double exictedpart;
         double fakepart;
+        public override string  AsText()
+        {
+            return "" + " Тип : Комплексное число " + Exictedpart + " + " + Fakepart + " i Приблизительно равен " + GetValue;
+        }
         public double Transfer()
         {
             nmbvalue = Math.Sqrt(Math.Pow(exictedpart, 2) + Math.Pow(fakepart, 2));
@@ -160,6 +148,10 @@ namespace Laba3
             nmbvalue = numerator / denominator;
             nmbvalue = Math.Round(nmbvalue, 4);
             return nmbvalue;
+        }
+        public override string AsText()
+        {
+            return "" + " Тип : дробь " + numerator + " / " + denominator + " и приблизительно равен " + GetValue;
         }
         public double Numerator
         {

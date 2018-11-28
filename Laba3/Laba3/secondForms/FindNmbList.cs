@@ -19,24 +19,11 @@ namespace Laba3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Number.count; i++)
+            if (Convert.ToInt16(maskedTextBox3.Text) > 0 && Convert.ToInt16(maskedTextBox3.Text) < Main.Global.nmb.Count)
             {
-                for (int j = 0; j < Main.Global.drb.Length; j++)
-                {
-                    if (Main.Global.drb[j].Count == i)
-                    {
-                        MessageBox.Show(Main.Global.drb[j].Count + " Тип : Дробь " + Main.Global.drb[j].Numerator + "/" + Main.Global.drb[j].Denominator + " Приблизительно равен " + Main.Global.drb[j].GetValue);
-                    }
-                }
-                for (int k = 0; k < Main.Global.kmp.Length; k++)
-                {
-                    if (i == Main.Global.kmp[k].Count)
-                    {
-                        MessageBox.Show(Main.Global.kmp[k].Count + " Тип : Комплексное число " + Main.Global.kmp[k].Exictedpart + " + " + Main.Global.kmp[k].Fakepart + "i Приблизительно равен " + Main.Global.kmp[k].GetValue);
-                    }
-                }
+                MessageBox.Show(Main.Global.nmb[Convert.ToInt16(maskedTextBox3.Text)].AsText());
             }
-
+            
         }
     }
 }

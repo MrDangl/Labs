@@ -36,6 +36,8 @@
             this.changeNumb = new System.Windows.Forms.ToolStripMenuItem();
             this.showList = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,11 +108,34 @@
             this.findToolStrip.Text = "Найти запись";
             this.findToolStrip.Click += new System.EventHandler(this.findToolStrip_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(708, 72);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Разработать все классы иерархии и Windows - приложение для добавления, \r\nввода по" +
+    " 2 объекта каждого класса, просмотра всех объектов, \r\nвыдачи запроса, записи объ" +
+    "ектов в файл и чтения их из файла\r\n";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(732, 48);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "1.\tКомплексные (действительная и мнимая части – пара действительных чисел)\r\nПрост" +
+    "ые дроби (числитель, знаменатель - пара целых чисел)";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 312);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.menuStrip;
@@ -134,6 +159,8 @@
         private System.Windows.Forms.ToolStripMenuItem writeTolStrip;
         private System.Windows.Forms.ToolStripMenuItem openToolStrip;
         private System.Windows.Forms.ToolStripMenuItem findToolStrip;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
