@@ -12,6 +12,13 @@ namespace Laba3
 {
     public partial class FindNmbList : Form
     {
+        public static bool Find(MaskedTextBox a)
+        {
+            int i = Convert.ToInt16(a.Text);
+            if (i > -1 && i < Main.Global.nmb.Count)
+            { return true; }
+            else { return false; }
+        }
         public FindNmbList()
         {
             InitializeComponent();
@@ -19,7 +26,7 @@ namespace Laba3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt16(maskedTextBox3.Text) > 0 && Convert.ToInt16(maskedTextBox3.Text) < Main.Global.nmb.Count)
+            if (Find(maskedTextBox3) ==true)
             {
                 MessageBox.Show(Main.Global.nmb[Convert.ToInt16(maskedTextBox3.Text)].AsText());
             }

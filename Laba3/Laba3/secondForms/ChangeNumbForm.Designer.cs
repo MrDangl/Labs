@@ -84,9 +84,9 @@
             // 
             this.addButton.Location = new System.Drawing.Point(230, 218);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(105, 29);
+            this.addButton.Size = new System.Drawing.Size(110, 29);
             this.addButton.TabIndex = 12;
-            this.addButton.Text = "button1";
+            this.addButton.Text = "Изменить";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Visible = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -135,7 +135,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 30);
             this.button1.TabIndex = 19;
-            this.button1.Text = "button1";
+            this.button1.Text = "Найти";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

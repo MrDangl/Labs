@@ -29,12 +29,12 @@ namespace Laba3
             maskedTextBox2.Visible = false;
             addButton.Visible = false;
             i = Convert.ToInt16(maskedTextBox3.Text) - 1;
-            if (i > 0 && i < Main.Global.nmb.Count)
+            if (FindNmbList.Find(maskedTextBox3) == true)
             {
                
                 if (i > 0 && Main.Global.nmb[i] is KomplexNumber)
                 { 
-                    KomplexNumber a = new KomplexNumber();
+                    KomplexNumber a ;
                     a = Main.Global.nmb[i] as KomplexNumber;
                     komplexlabel1.Visible = true;
                     komplexlabel2.Visible = true;
@@ -49,7 +49,7 @@ namespace Laba3
                 }
                 if (Main.Global.nmb[i] is DrobNumber)
                 {
-                    DrobNumber a = new DrobNumber();
+                    DrobNumber a ;
                     a = Main.Global.nmb[i] as DrobNumber;
                     droblabel1.Visible = true;
                     droblabel2.Visible = true;
