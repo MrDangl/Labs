@@ -28,7 +28,7 @@ namespace Laba3
                     x.Denominator = Convert.ToDouble(maskedTextBox2.Text);
                     x.Transfer();
                     Main.Global.nmb.Add(x);
-                    MessageBox.Show("обьект создан его запись " + Main.Global.nmb.Count+1);
+                    MessageBox.Show("обьект создан его запись " + (Main.Global.nmb.Count+1));
 
                 }
                 if (komplexRadioButton.Checked == true)
@@ -37,7 +37,7 @@ namespace Laba3
                     x.Exictedpart = Convert.ToDouble(maskedTextBox1.Text);
                     x.Fakepart = Convert.ToDouble(maskedTextBox2.Text);
                     x.Transfer();
-                    MessageBox.Show("обьект создан его запись " + Main.Global.nmb.Count+1);
+                    MessageBox.Show("обьект создан его запись " + (Main.Global.nmb.Count+1));
                     Main.Global.nmb.Add(x);
                 }
             }

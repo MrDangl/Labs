@@ -34,13 +34,15 @@ namespace Laba3
             for (int i = 0; i < Global.nmb.Count; i++)
             {
                 if (Global.nmb[i] is KomplexNumber)
-                { KomplexNumber a = new KomplexNumber();
-                    a = Global.nmb[i] as KomplexNumber;
+
+                 {
+                    KomplexNumber a ;
+                    a = (KomplexNumber)Global.nmb[i];
                     text = "kmp " + a.Exictedpart +" "+ a.Fakepart ; 
                 }
                 if (Global.nmb[i] is DrobNumber)
                 {
-                    DrobNumber a = new DrobNumber();
+                    DrobNumber a ;
                     a = Global.nmb[i] as DrobNumber;
                     text = "drb " + a.Numerator+" "+ a.Numerator;
                 }
