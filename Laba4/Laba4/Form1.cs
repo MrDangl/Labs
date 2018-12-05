@@ -1,26 +1,38 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections.Generic;
 using ClassLibrary1;
 
 namespace Laba4
 {
     public partial class Form1 : Form
     {
+        //define variables
         int numberofzapros = 0;
+        int[] el = new int[10];
+        Random ran = new Random();
+        string[] text = { "Бояться надо не смерти, а пустой жизни ", "Там, где кончается терпение, начинается выносливость", "Отличный способ проверить человека - это довериться ему", "14579643", "Человек ценен, когда его слова совпадают с его действиями" };
+        List<Drugs> drugs = new List<Drugs>();
+        List<Books> books = new List<Books>();
+        List<Readers> readers = new List<Readers>();
         public Form1()
         {
+
             InitializeComponent();
             for (int i = 0; i < el.Length; i++)
             {
                 el[i] = 100 - ran.Next(200);
             }
-}
-        int[] el = new int[10];
-        Random ran = new Random();
-        string[] text = { "Бояться надо не смерти, а пустой жизни ", "Там, где кончается терпение, начинается выносливость", "Отличный способ проверить человека - это довериться ему", "14579643", "Человек ценен, когда его слова совпадают с его действиями" };
+            //define drugslist
+            {
+                //drugs.Add(new Drugs()); _
+            }
+        }
+
         public bool IfNumber(string t)
         {
+            
             int n;
             if (int.TryParse(t, out n) == true)
                 return true;
@@ -28,7 +40,8 @@ namespace Laba4
         }
         public void Clear()
         {
-            listBox1.ClearSelected();
+            listBox1.ResetText();
+            listBox1.DataSource = null;
             label1.Visible = false;
             leftButton.Visible = false;
             middleButton.Visible = false;
