@@ -15,13 +15,20 @@ namespace Laba4
             {
                 el[i] = 100 - ran.Next(200);
             }
-        }
-        int[] el = new int[20];
+}
+        int[] el = new int[10];
         Random ran = new Random();
-
-    public void Clear()
+        string[] text = { "Бояться надо не смерти, а пустой жизни ", "Там, где кончается терпение, начинается выносливость", "Отличный способ проверить человека - это довериться ему", "14579643", "Человек ценен, когда его слова совпадают с его действиями" };
+        public bool IfNumber(string t)
         {
-            listBox1.Text = "";
+            int n;
+            if (int.TryParse(t, out n) == true)
+                return true;
+            else return false;
+        }
+        public void Clear()
+        {
+            listBox1.ClearSelected();
             label1.Visible = false;
             leftButton.Visible = false;
             middleButton.Visible = false;
@@ -87,6 +94,7 @@ namespace Laba4
         {
             Clear();
             Zapros2_Show();
+            listBox1.DataSource = text;
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -113,14 +121,25 @@ namespace Laba4
             if (numberofzapros == 1)
             {
                 int add = 1;
-                var querystring = el.Where(c => c % 2 == c / 2);
+                var querystring = el.Where(c => c % 2 == 0);
                 foreach (int i in querystring)
                 {
-                    add *= i;
+                    add = add*i;
                 }
                 MessageBox.Show("Произведение четных элементов равно: " + add);
             }
-          
+            if (numberofzapros == 2)
+            {
+                string line = "";
+               
+                var querytring = text.Where(c => IfNumber(c) == true  );
+                foreach (string i in querytring)
+                {
+                    line += " " + i;
+                }
+                MessageBox.Show("Строка(Строки) " + line + " являются изображением числа");
+
+            }
         }
 
         private void rightButton_Click(object sender, EventArgs e)
