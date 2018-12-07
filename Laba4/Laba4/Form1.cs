@@ -38,6 +38,8 @@ namespace Laba4
                 books.Add(new Books(2, "С# для чайников", "Microsoft", "2014", "Учебное", 520));
                 books.Add(new Books(3, "Биология для 9 класса", "Понамарева", "2017", "Учебное", 120));
                 books.Add(new Books(4, "Остров Сокровищь", "N/A", "1880", "Художественное", 125));
+               
+
             }
             //define person
             {
@@ -122,7 +124,7 @@ namespace Laba4
                 listBox1.Items.Add(books[i].AsText());
             }
             listBox1.Items.Add("Посетители библиотеки");
-            for (int i = 0; i < books.Count; i++)
+            for (int i = 0; i < readers.Count; i++)
             {
                 listBox1.Items.Add(readers[i].AsText());
             }
@@ -162,13 +164,21 @@ namespace Laba4
 
         private void leftButton_Click(object sender, EventArgs e)
         {
-            int k;
+            listBox1.Items.Clear();
             string line = "";
-            string[] names = new string[readers.Count];
-            //var idqueristring = from c in readers where c.IdBooks;
-            var bookid = from c in books select c.ID;
+            var idquerry = from c in readers let ids = c.IdBooks() from id in ids select new { Name = c.Name, ID = id };
+            var rearrayquery = from i in idquerry from j in books where i.ID.Equals(j.ID) == true select new { Name = i.Name, Bookhave = j.Name } ;
+            var finalquery = from i in rearrayquery group i by i.Name into g select new {Name =g.Key, Bookshave = from p in g select p} ;
+            foreach (var i in finalquery)
+            {
+                line = "";
+                foreach (var b in i.Bookshave)
+                {
+                    line += " "+ b.Bookhave;
+                }
+                listBox1.Items.Add(" " + i.Name +"   Должен: "+ line);
+            }
             
-
         }
 
         private void middleButton_Click(object sender, EventArgs e)
@@ -218,7 +228,12 @@ namespace Laba4
 
         private void rightButton_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Clear();
+            var bookshavequeri = from b in books from r in readers let rid = r.IdBooks() from id in rid where b.ID.Equals(id) == true group b by b.Name into eg select new {Name = eg.Key,How = eg.Count() }; 
+            foreach (var i in bookshavequeri)
+            {
+                listBox1.Items.Add(i.Name + " : " +i.How);
+            }
         }
     }
 
