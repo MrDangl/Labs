@@ -26,7 +26,26 @@ namespace Laba4
             }
             //define drugslist
             {
-                //drugs.Add(new Drugs()); _
+                drugs.Add(new Drugs("Парацетомол","МедГруп",4,15,5));
+                drugs.Add(new Drugs("АЦЦ", "D-Comp", 10, 26, 40));
+                drugs.Add(new Drugs("Ревит", "Медгруп", 2, 24, 10));
+                drugs.Add(new Drugs("Ношпа","РосМед",8,10,100));
+                drugs.Add(new Drugs("Форингосепт", "ABC",11,45,10));
+            }
+            //define bookslist
+            {
+                books.Add(new Books(1, "Дон Кихот", "Мигель де Сервантес", "1615", "Художественное", 615));
+                books.Add(new Books(2, "С# для чайников", "Microsoft", "2014", "Учебное", 520));
+                books.Add(new Books(3, "Биология для 9 класса", "Понамарева", "2017", "Учебное", 120));
+                books.Add(new Books(4, "Остров Сокровищь", "N/A", "1880", "Художественное", 125));
+            }
+            //define person
+            {
+                readers.Add(new Readers("Глеб Данилов", "Бульвар рябикова 5", 614243, "1,2"));
+                readers.Add(new Readers("Денис Шелковников", "Улан Батора 13", 75014, "4"));
+                readers.Add(new Readers("Иван Климачев", "Ангарск Ленина 5", 213562, "2,4"));
+                readers.Add(new Readers("Валера Глазков", "Степана Разина 12", 231445, "3"));
+
             }
         }
 
@@ -40,8 +59,10 @@ namespace Laba4
         }
         public void Clear()
         {
-            listBox1.ResetText();
+
             listBox1.DataSource = null;
+            listBox1.Items.Clear();
+            listBox1.ResetText();
             label1.Visible = false;
             leftButton.Visible = false;
             middleButton.Visible = false;
@@ -80,8 +101,12 @@ namespace Laba4
             middleButton.Visible = true;
             textBox1.Visible = true;
             label1.Visible = true;
-            middleButton.Text = "Выполнить";
-            
+            middleButton.Text = "Посчитать";
+            for (int i = 0; i < drugs.Count; i++)
+            {
+                listBox1.Items.Add(drugs[i].AsText());
+            }
+
         }
         public void Zapros4_Show()
         {
@@ -90,8 +115,19 @@ namespace Laba4
             labelzapros4.Visible = true;
             labelzapros4.Location = labelzapros1.Location;
             leftButton.Visible = true;
-            middleButton.Visible = true;
             rightButton.Visible = true;
+            listBox1.Items.Add("Книги в библиотеке");
+            for (int i = 0; i < books.Count; i++)
+            {
+                listBox1.Items.Add(books[i].AsText());
+            }
+            listBox1.Items.Add("Посетители библиотеки");
+            for (int i = 0; i < books.Count; i++)
+            {
+                listBox1.Items.Add(readers[i].AsText());
+            }
+            leftButton.Text = "Группа";
+            rightButton.Text = "Сумма";
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -121,10 +157,17 @@ namespace Laba4
         {
             Clear();
             Zapros4_Show();
+
         }
 
         private void leftButton_Click(object sender, EventArgs e)
         {
+            int k;
+            string line = "";
+            string[] names = new string[readers.Count];
+            //var idqueristring = from c in readers where c.IdBooks;
+            var bookid = from c in books select c.ID;
+            
 
         }
 
@@ -152,6 +195,24 @@ namespace Laba4
                 }
                 MessageBox.Show("Строка(Строки) " + line + " являются изображением числа");
 
+            }
+            if (numberofzapros ==3)
+            {
+                int n;
+                if (int.TryParse(textBox1.Text,out n)==true)
+                {
+                    n = Convert.ToInt16(textBox1.Text);
+                    var querytring = drugs.Where(c => c.ID == n);
+                    foreach (Drugs t in querytring)
+                        MessageBox.Show("Цена проданных лекарств равно " + t.NumbOfPack * t.Cost);
+                }
+                else
+                {
+                    string line = textBox1.Text;
+                    var querytring = drugs.Where(c => c.Name == line);
+                    foreach (Drugs t in querytring)
+                        MessageBox.Show("Цена проданных лекарств равно " + t.NumbOfPack * t.Cost);
+                }
             }
         }
 

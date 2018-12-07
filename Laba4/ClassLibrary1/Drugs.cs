@@ -10,6 +10,10 @@ namespace ClassLibrary1
     {
         int cost;
         int numbofpack;
+        public override string AsText()
+        {
+            return ID + " : " + Name + "  Произведено компанией: " + From +" "+ "стоит " + cost + " проданно по магазинам " + numbofpack;
+        }
         public int Cost
         {
             set { cost = value; }

@@ -11,6 +11,10 @@ namespace ClassLibrary1
         string yearofpubl;
         string type;
         int numbofpage;
+        public override string AsText()
+        {
+            return ID + " : "+ Name  + " Автор :"+ From +" написанно в " + Yearofpubl + " "+Type+" Произведение "+ NumbOfPage+" страниц";
+        }
         public string Yearofpubl
         {
             get { return yearofpubl; }

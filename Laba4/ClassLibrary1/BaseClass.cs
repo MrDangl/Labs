@@ -11,6 +11,10 @@ namespace ClassLibrary1
         string name;
         int id;
         string from;
+        public virtual string AsText ()
+        {
+            return "";
+        }
         public string Name
         {
             set { name = value; }
