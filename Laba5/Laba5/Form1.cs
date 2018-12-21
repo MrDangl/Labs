@@ -22,19 +22,33 @@ namespace Laba5
             Match a;
             
         }
-        Regex Test = new Regex(@"[A-Za-z]+\.+[A-Za-z]+\.+[A-Za-z]+");
+        Regex Test = new Regex(@"http://+[A-Za-z]+\.+[A-Za-z]*\.*[A-Za-z]*");
         string result;
 
         private void form1_SizeChange(object sender,EventArgs e)
         {
-            richTextBox1.Height = Height - 200;
-            richTextBox2.Height = Height - 200;
-            richTextBox1.Width = Width / 2 - 50;
-            richTextBox2.Width = Width / 2 - 50;
-            Point p = new Point(richTextBox1.Location.X + richTextBox1.Width + 30, 70);
+            tabControl1.Height = Height - 100;
+            tabControl1.Width = Width - 50;
+            richTextBox1.Height = tabControl1.Height - 150;
+            richTextBox2.Height = tabControl1.Height - 150;
+            richTextBox3.Height = tabControl1.Height - 150;
+            richTextBox4.Height = tabControl1.Height - 150;
+
+            richTextBox1.Width = tabControl1.Width / 2 - 50;
+            richTextBox2.Width = tabControl1.Width / 2 - 50;
+            richTextBox3.Width = tabControl1.Width / 2 - 50;
+            richTextBox4.Width = tabControl1.Width / 2 - 50;
+            
+            Point p = new Point(richTextBox1.Location.X + richTextBox1.Width + 30, 50);
             richTextBox2.Location = p;
-            label1.Location = new Point(richTextBox1.Location.X + (richTextBox1.Width / 2) - 60, 45);
-            label2.Location = new Point(richTextBox2.Location.X + richTextBox2.Width / 2 - 70, 45);
+            Point p1 = new Point(richTextBox3.Location.X + richTextBox3.Width + 30, 50);
+            richTextBox4.Location = p1;
+            
+            label1.Location = new Point(richTextBox1.Location.X + (richTextBox1.Width / 2) - 60, 30);
+            label2.Location = new Point(richTextBox2.Location.X + richTextBox2.Width / 2 - 70, 30);
+            label4.Location = new Point(richTextBox3.Location.X + richTextBox3.Width / 2 - 70, 30);
+            label5.Location = new Point(richTextBox4.Location.X + richTextBox4.Width / 2 - 70, 30);
+            
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,20 +79,23 @@ namespace Laba5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = Test.Replace(richTextBox1.Text, "...");
-            if (textBox1.Text !="")
-            {
-                try
-                {
-                    Regex Test2 = new Regex(textBox1.Text);
-                }
-                catch (Exception) { }
-                }
+            richTextBox2.Text = Test.Replace(richTextBox1.Text, " ...");
+           
         }
 
-        private void ZadanieToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("7.	поиск: гиперссылки в коде HTML страницы; замена: приведение гиперссылок к относительному виду (./***/***).");
+            try
+            {
+                Regex test = new Regex(textBox1.Text);
+                
+                richTextBox3.Text = test.Matches(richTextBox1.Text).ToString();
+                richTextBox4.Text = test.Replace(richTextBox1.Text, "Replace");
+            }
+            catch(Exception)
+            {
+                
+            }
         }
     }
 }
